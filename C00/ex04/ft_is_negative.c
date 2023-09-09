@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/08 19:37:43 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/08 19:38:05 by sferrare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <unistd.h>
+
 void	ft_is_negative(int n)
 {
 	if (n < 0)
@@ -8,13 +21,4 @@ void	ft_is_negative(int n)
 	{
 		write(1, "P", 1);
 	}
-}
-
-int	main(void)
-{
-	int	number;
-
-	number = -5;
-	ft_is_negative(number);
-	return (0);
 }

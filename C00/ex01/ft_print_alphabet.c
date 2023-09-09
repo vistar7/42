@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Your_Name <your_email@example.com>                         +#+       */
+/*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 00:00:00 by Your_Name         #+#    #+#             */
-/*   Updated: 2023/09/06 00:00:00 by Your_Name        ###   ########.fr       */
+/*   Created: 2023/09/08 18:18:03 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/08 18:18:18 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
+
 void	ft_print_alphabet(void)
 {
-	char	letter;
-
-	letter = 'a';
-	while (letter <= 'z')
-	{
-		write(1, &letter, 1);
-		letter++;
-	}
+	write(1, "abcdefghijklmnopqrstuvwxyz\n", 27);
 }
