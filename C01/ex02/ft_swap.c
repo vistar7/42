@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 18:18:03 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/08 18:18:18 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/13 20:30:12 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/13 20:30:23 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_alphabet(void)
+void	ft_swap(int *a, int *b)
 {
-	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-/*int	main(void)
+/*int	main(void) 
 {
-	ft_print_alphabet();
+    int x = 5;
+    int y = 10;
+
+    printf("Prima dello scambio: x = %d, y = %d\n", x, y);
+
+    ft_swap(&x, &y);
+
+    printf("Dopo lo scambio: x = %d, y = %d\n", x, y);
+
+    return 0;
 }*/

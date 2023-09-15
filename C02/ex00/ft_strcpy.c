@@ -1,49 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:59:05 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/12 17:59:32 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/14 21:57:05 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/14 21:57:24 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	write(1, &c, 1);
-}
+	char	*original_dest;
 
-void	ft_putnbr(int nb)
-{
-	long	n;
-	int		divisor;
-
-	n = nb; 
-	if (n < 0)
+	original_dest = dest;
+	while (*src != '\0')
 	{
-		ft_putchar('-');
-		n = -n;
+		*dest = *src;
+		src++;
+		dest++;
 	}
-	divisor = 1;
-	while (n / divisor >= 10)
-	{
-		divisor *= 10;
-	}
-	while (divisor > 0)
-	{
-		ft_putchar((n / divisor) % 10 + '0');
-		divisor /= 10;
-	}
+	*dest = '\0';
+	return (original_dest);
 }
 /*
 int	main(void)
 {
-	int	nb;
+    char source[] = "Hello, World!";
+    char destination[14]; // Make sure the destination buffer is large enough
 
-	nb = 42;
-	ft_putnbr(nb);
-	return (0);
+    ft_strcpy(destination, source);
+
+    printf("Copied string: %s\n", destination);
+
+    return 0;
 }*/

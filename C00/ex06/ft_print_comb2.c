@@ -30,24 +30,27 @@ void	print_combination(int num1, int num2)
 	}
 }
 
-void	ft_print_comb2_recursive(int num1, int num2)
-{
-	if (num1 <= 98)
-	{
-		if (num2 <= 99)
-		{
-			print_combination(num1, num2);
-			ft_print_comb2_recursive(num1, num2 + 1);
-		}
-		else
-		{
-			ft_print_comb2_recursive(num1 + 1, num1 + 2);
-		}
-	}
-}
-
 void	ft_print_comb2(void)
 {
-	ft_print_comb2_recursive(0, 1);
-	ft_putchar('\n');
+	int	num1;
+	int	num2;
+
+	num1 = 0;
+	num2 = 1;
+	while (num1 <= 98)
+	{
+		while (num2 <= 99)
+		{
+			print_combination(num1, num2);
+			num2++;
+		}
+		num1++;
+		num2 = num1 + 1;
+	}
 }
+/*
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
+}*/

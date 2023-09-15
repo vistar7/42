@@ -11,19 +11,16 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void	print_numbers(int *numbers, int n)
 {
-	int	i;
+	int		i;
+	char	temp;
 
 	i = 0;
 	while (i < n)
 	{
-		ft_putchar(numbers[i] + '0');
+		temp = numbers[i] + '0';
+		write(1, &temp, 1);
 		i++;
 	}
 }
@@ -31,18 +28,19 @@ void	print_numbers(int *numbers, int n)
 int	increment_numbers(int *numbers, int n)
 {
 	int	i;
+	int	j;
 
 	i = n - 1;
 	while (i >= 0)
 	{
-		if (numbers[i] != 9 - (n - 1 - i))
+		if (numbers[i] != 10 - (n - i))
 		{
 			numbers[i]++;
-			i++;
-			while (i < n)
+			j = i + 1;
+			while (j < n)
 			{
-				numbers[i] = numbers[i - 1] + 1;
-				i++;
+				numbers[j] = numbers[i] + (j - i);
+				j++;
 			}
 			return (1);
 		}
@@ -51,36 +49,38 @@ int	increment_numbers(int *numbers, int n)
 	return (0);
 }
 
-void	ft_print_combn(int n)
+void	generate_combinations(int n)
 {
 	int	numbers[9];
 	int	first;
 	int	j;
 
-	if (n < 1 || n > 9) 
-		return ;
-	j = 0;
 	first = 1;
-	while (j < 9)
+	j = 0;
+	while (j < n)
 	{
-		numbers[j] = 0;
+		numbers[j] = j;
 		j++;
 	}
-	while (numbers[0] <= 9 - n)
+	while (1)
 	{
 		if (!first)
 		{
-			ft_putchar(',');
-			ft_putchar(' ');
+			write(1, ",", 1);
+			write(1, " ", 1);
 		}
 		first = 0;
 		print_numbers(numbers, n);
 		if (!increment_numbers(numbers, n))
-		{
 			break ;
-		}
 	}
-	ft_putchar('\n');
+}
+
+void	ft_print_combn(int n)
+{
+	if (n < 1 || n > 9)
+		return ;
+	generate_combinations(n);
 }
 
 /*int	main(void)

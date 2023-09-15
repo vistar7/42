@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 18:18:03 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/08 18:18:18 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/14 18:41:57 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/14 18:42:32 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_alphabet(void)
+int	ft_strlen(char *str)
 {
-	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
+	int	length;
+
+	length = 0;
+	while (*str != '\0')
+	{
+		length++;
+		str++;
+	}
+	return (length);
 }
-
-/*int	main(void)
+/*
+int	main(void)
 {
-	ft_print_alphabet();
+    char *message = "Hello, world!";
+    int length = ft_strlen(message);
+    printf("Length of the string: %d\n", length);
+    return 0;
 }*/

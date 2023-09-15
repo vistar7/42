@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 18:18:03 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/08 18:18:18 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/15 21:04:13 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/15 21:04:26 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_alphabet(void)
+int	ft_str_is_alpha(char *str)
 {
-	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
+	int	i;
+
+	i = 1;
+	while (*str != '\0')
+	{
+		if (!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
+		{
+			i = 0;
+			break ;
+		}
+		str++;
+	}
+	return (i);
 }
-
-/*int	main(void)
+/*
+int	main(void)
 {
-	ft_print_alphabet();
+	printf("%d\n", ft_str_is_alpha("afggdDEGF  ."));
 }*/

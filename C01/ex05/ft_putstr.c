@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 18:18:03 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/08 18:18:18 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/14 18:22:37 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/14 18:22:54 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_putstr(char *str)
 {
-	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
-}
+	int	i;
 
-/*int	main(void)
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+/*
+int	main(void)
 {
-	ft_print_alphabet();
+    char *message = "Hello, world!";
+    ft_putstr(message);
+    write(1, "\n", 1);
+    return 0;
 }*/

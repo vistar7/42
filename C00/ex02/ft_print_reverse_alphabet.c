@@ -13,5 +13,5 @@
 
 void	ft_print_reverse_alphabet(void)
 {
-	write(1, "zyxwvutsrpqonmlkjihgfedcba\n", 27);
+	write(1, "zyxwvutsrqponmlkjihgfedcba", 26);
 }
