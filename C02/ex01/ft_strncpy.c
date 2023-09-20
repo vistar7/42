@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 21:57:05 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/14 21:57:24 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/19 17:52:09 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/19 17:52:17 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
 	char	*original_dest;
 
 	original_dest = dest;
-	while (*src != '\0')
+	while (n > 0 && *src != '\0')
 	{
 		*dest = *src;
-		src++;
 		dest++;
+		src++;
+		n--;
 	}
-	*dest = '\0';
+	while (n > 0)
+	{
+		*dest = '\0';
+		dest++;
+		n--;
+	}
 	return (original_dest);
 }
 /*
 int	main(void)
 {
-//    char source[] = "Hello, Worldd!";
-    char dest[14]; // Make sure the destination buffer is large enough
+	char	source[] = "Abbello, Ciaone!";
+	char	destination[21];
 
-    ft_strcpy(dest, "Hello, Worldd!");
-
-    printf("Copied string: %s\n", dest);
-
-    return 0;
+	ft_strncpy(destination, source, 5);
+	printf("Copied string: %s\n", destination);
+	return (0);
 }*/

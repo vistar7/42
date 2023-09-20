@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 21:57:05 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/14 21:57:24 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/19 18:35:53 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/19 18:36:06 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+int	ft_str_is_lowercase(char *str)
 {
-	char	*original_dest;
+	int	i;
 
-	original_dest = dest;
-	while (*src != '\0')
+	i = 1;
+	while (*str != '\0')
 	{
-		*dest = *src;
-		src++;
-		dest++;
+		if (!((*str >= 'a' && *str <= 'z')))
+		{
+			i = 0;
+			break ;
+		}
+		str++;
 	}
-	*dest = '\0';
-	return (original_dest);
+	return (i);
 }
-/*
-int	main(void)
-{
-//    char source[] = "Hello, Worldd!";
-    char dest[14]; // Make sure the destination buffer is large enough
-
-    ft_strcpy(dest, "Hello, Worldd!");
-
-    printf("Copied string: %s\n", dest);
-
-    return 0;
-}*/

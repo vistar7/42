@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sferrare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 21:57:05 by sferrare          #+#    #+#             */
-/*   Updated: 2023/09/14 21:57:24 by sferrare         ###   ########.fr       */
+/*   Created: 2023/09/19 21:31:46 by sferrare          #+#    #+#             */
+/*   Updated: 2023/09/19 21:32:06 by sferrare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strupcase(char *str)
 {
-	char	*original_dest;
+	char	*original_str;
 
-	original_dest = dest;
-	while (*src != '\0')
+	original_str = str;
+	while (*str != '\0')
 	{
-		*dest = *src;
-		src++;
-		dest++;
+		if (*str >= 'a' && *str <= 'z')
+			*str = *str - 32;
+		str++;
 	}
-	*dest = '\0';
-	return (original_dest);
+	return (original_str);
 }
-/*
-int	main(void)
-{
-//    char source[] = "Hello, Worldd!";
-    char dest[14]; // Make sure the destination buffer is large enough
-
-    ft_strcpy(dest, "Hello, Worldd!");
-
-    printf("Copied string: %s\n", dest);
-
-    return 0;
-}*/
